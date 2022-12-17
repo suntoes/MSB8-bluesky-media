@@ -30,10 +30,10 @@ const Navbar = () => (
       spacing={12}
       mt={{ base: 4, lg: 0 }}
     >
-      <Link href="/#why-bluesky">Why BlueSky</Link>
-      <Link href="/#our-work">Our Work</Link>
-      <Link href="/#our-process">Our Process</Link>
-      <Link href="/#what-clients-say">What Clients Say</Link>
+      <Link href="#why-bluesky">Why BlueSky</Link>
+      <Link href="#our-work">Our Work</Link>
+      <Link href="#our-process">Our Process</Link>
+      <Link href="#what-clients-say">What Clients Say</Link>
     </Stack>
     <Box display={{ base: 'flex', lg: 'none' }} alignItems="center">
       <Menu isLazy id="navbar-menu">
@@ -45,16 +45,16 @@ const Navbar = () => (
           aria-label="Options"
         />
         <MenuList>
-          <Link href="/#why-bluesky">
+          <Link href="#why-bluesky">
             <MenuItem>Why BlueSky</MenuItem>
           </Link>
-          <Link href="/#our-work">
+          <Link href="#our-work">
             <MenuItem>Our Work</MenuItem>
           </Link>
-          <Link href="/#our-process">
+          <Link href="#our-process">
             <MenuItem>Our Process</MenuItem>
           </Link>
-          <Link href="/#what-clients-say">
+          <Link href="#what-clients-say">
             <MenuItem>What Clients Say</MenuItem>
           </Link>
         </MenuList>
