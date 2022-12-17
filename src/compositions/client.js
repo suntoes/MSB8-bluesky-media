@@ -64,7 +64,7 @@ const ClientContent = ({ index }) => (
         <Image maxH={{ base: 5, md: 8 }} src="images/5-stars.png" />
       </Stack>
       <Box align="center" fontSize={{ base: 16, md: 24 }}>
-        {clientList[0].description}
+        {clientList[index].description}
       </Box>
     </motion.div>
   </AnimatePresence>
