@@ -7,6 +7,7 @@
     "@chakra-ui/react": "^2.3.4",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fancyapps/ui": "^4.0.31",
     "axios": "^1.2.1",
     "framer-motion": "^7.3.6",
     "react": "^18.2.0",

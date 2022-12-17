@@ -20,29 +20,23 @@ const clientList = [
   {
     picSrc: 'images/client-a4d.png',
     name: 'Kevin Wolf',
-    company: `SVP of Soles & Email Marketing | A4D LLC | NIB Direct | Jamiak Ink.`,
+    company: `SVP of Soles & Email Marketing\nA4D LLC | NIB Direct | Jamiak Ink`,
     description: `BlueSky has been a valued partner of ours for over a year now! We could not be happier with the work they have done for us and
       sister companies. Their design work has been top notch, across multiple projects, channels, and verticals. Their attention to detail, prompt
       response time and amazing design work has changed our company for the better and we are forever grateful. We recommend BlueSky's services to 
       anyone in the digital space and we look forward to working with them on numerous projects in the future!`
   },
   {
-    picSrc: 'images/client-a4d.png',
-    name: 'Kevin Wolf',
-    company: `SVP of Soles & Email Marketing | A4D LLC | NIB Direct | Jamiak Ink.`,
-    description: `BlueSky has been a valued partner of ours for over a year now! We could not be happier with the work they have done for us and
-      sister companies. Their design work has been top notch, across multiple projects, channels, and verticals. Their attention to detail, prompt
-      response time and amazing design work has changed our company for the better and we are forever grateful. We recommend BlueSky's services to 
-      anyone in the digital space and we look forward to working with them on numerous projects in the future!`
+    picSrc: 'images/client-growmyfirmonline.png',
+    name: 'John H',
+    company: `Founding Partner\nGrow My Firm Online`,
+    description: `BlueSky was amazing to work with. I've built my own websites for years, subcontracted many times, and often I've found it's easier/cheaper to do it myself than deal with outsourcing. With BlueSky, I couldn't have been more happy and it was such a smooth process. I will never build my own site again. BlueSky all the way will 100% use them again on my next projects.`
   },
   {
-    picSrc: 'images/client-a4d.png',
-    name: 'Kevin Wolf',
-    company: `SVP of Soles & Email Marketing | A4D LLC | NIB Direct | Jamiak Ink.`,
-    description: `BlueSky has been a valued partner of ours for over a year now! We could not be happier with the work they have done for us and
-      sister companies. Their design work has been top notch, across multiple projects, channels, and verticals. Their attention to detail, prompt
-      response time and amazing design work has changed our company for the better and we are forever grateful. We recommend BlueSky's services to 
-      anyone in the digital space and we look forward to working with them on numerous projects in the future!`
+    picSrc: 'images/client-cs.png',
+    name: 'Ben Paisley',
+    company: `Chief Technology Officer\nGetLiveHelp, Inc.`,
+    description: `We hired BlueSky to build out a custom platform for our call center. Their communication was great, they were very professional and the work was very well documented. I highly recomend working with BlueSky as it is hard to find a good dev company of this caliber. We will definitely use them again for future dev work.`
   }
 ]
 
@@ -54,16 +48,24 @@ const ClientContent = ({ index }) => (
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
     >
-      <Box align="center">{clientList[0].description}</Box>
-      <Stack align="center" pt={5}>
+      <Stack align="center" pb={5}>
+        <Image maxH={{ base: 55, md: 90 }} src={clientList[index].picSrc} />
         <Heading fontSize={{ base: 18, md: 24 }}>
           {clientList[index].name}
         </Heading>
-        <Box fontSize={{ base: 14, md: 16 }} maxW={280} pb="0.5rem">
+        <Box
+          fontSize={{ base: 14, md: 16 }}
+          maxW={280}
+          align="center"
+          whiteSpace="pre"
+        >
           {clientList[index].company}
         </Box>
-        <Image maxW={{ base: 90, md: 145 }} src={clientList[index].picSrc} />
+        <Image maxH={{ base: 5, md: 8 }} src="images/5-stars.png" />
       </Stack>
+      <Box align="center" fontSize={{ base: 16, md: 24 }}>
+        {clientList[0].description}
+      </Box>
     </motion.div>
   </AnimatePresence>
 )
@@ -128,7 +130,17 @@ const Client = () => {
             fontSize={{ base: 150, md: 370 }}
             lineHeight={0}
           >
-            <Delayed onView={true}>&lsquo;&lsquo;</Delayed>
+            <AnimatePresence exitBeforeEnter mode="wait">
+              <motion.div
+                key={'lsquo-' + indexPage}
+                initial={{ x: -50, rotate: 10 }}
+                animate={{ x: 0, rotate: 0 }}
+                exit={{ x: -50, rotate: 10 }}
+              >
+                {' '}
+                &lsquo;&lsquo;
+              </motion.div>
+            </AnimatePresence>
           </Heading>
         </Stack>
         <Flex w="full">
@@ -149,8 +161,8 @@ const Client = () => {
           <Stack
             flex={1}
             px={{ base: 5, md: 16 }}
-            pt={{ base: 8, md: 24 }}
-            pb={{ base: 5, md: 10 }}
+            pt={{ base: 5, md: 8 }}
+            pb={{ base: 8, md: 20 }}
             minH={{ base: 400, md: 600 }}
             bg="purple2"
             boxShadow="15px 15px #00000022"
@@ -187,7 +199,17 @@ const Client = () => {
             fontSize={{ base: 150, md: 370 }}
             lineHeight={0}
           >
-            <Delayed onView={true}>&lsquo;&lsquo;</Delayed>
+            <AnimatePresence exitBeforeEnter mode="wait">
+              <motion.div
+                key={'lsquo-' + indexPage}
+                initial={{ x: -50, rotate: 10 }}
+                animate={{ x: 0, rotate: 0 }}
+                exit={{ x: -50, rotate: 10 }}
+              >
+                {' '}
+                &lsquo;&lsquo;
+              </motion.div>
+            </AnimatePresence>
           </Heading>
         </Stack>
 

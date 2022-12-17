@@ -5,11 +5,11 @@ const Fonts = () => (
     styles={`
     html,
     body {
+      scroll-behavior: smooth;
       /* Safari compatibility */
       overflow-x: hidden;
       height: auto;
       width: 100vw;
-      transform: translate3d(0,0,0);
     }
 
     @font-face {
