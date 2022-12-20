@@ -16,8 +16,9 @@ import { sendMail } from '../lib/axios'
 
 import StyledForm from '../components/styled-form'
 
-const Contact = () => {
+const Footer = () => {
   const [error, setError] = useState('')
+  const [agree, setAgree] = useState(false)
   const [stage, setStage] = useState('loading')
   const [form, setForm] = useState({})
 
@@ -53,8 +54,9 @@ const Contact = () => {
 
   const handleSubmit = () => {
     const missing = handleMissing()
+    const disagreed = agree ? false : 'Please agree to the form conditions'
 
-    if (missing) return setError(missing)
+    if (missing || disagreed) return setError(missing || disagreed)
     else setStage('captcha')
   }
 
@@ -121,6 +123,8 @@ const Contact = () => {
             <StyledForm
               form={form}
               error={error}
+              agree={agree}
+              setAgree={setAgree}
               onChange={handleInput}
               onSubmit={handleSubmit}
             />
@@ -148,4 +152,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Footer

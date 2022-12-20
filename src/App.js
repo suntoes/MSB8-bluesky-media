@@ -1,39 +1,24 @@
 import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-import { Box } from '@chakra-ui/react'
+import Routes from './routes'
 
 import Chakra from './components/chakra'
 import Fonts from './components/fonts'
 
-import Hero from './compositions/hero'
-import WhyBluesky from './compositions/why-bluesky'
-import WorkExpectation from './compositions/work-expectation'
-import WorkWithTheBest from './compositions/work-with-the-best'
-import ViewWorks from './compositions/view-works'
-import DiscoverCapabilities from './compositions/discover-capabilities'
-import OurPrecess from './compositions/our-process'
-import Client from './compositions/client'
-import Contact from './compositions/contact'
+import HeroBackground from './components/background'
+import NavBar from './components/navbar'
+import Footer from './compositions/footer'
 
 const App = () => (
   <Chakra>
     <Fonts />
-    <Hero />
-    <WhyBluesky />
-    <WorkExpectation />
-    <WorkWithTheBest />
-    <ViewWorks />
-    <Box
-      overflow="hidden"
-      position="relative"
-      zIndex={-1}
-      bgImage="url(images/background-asset-02.png)"
-    >
-      <DiscoverCapabilities />
-      <OurPrecess />
-    </Box>
-    <Client />
-    <Contact />
+    <HeroBackground />
+    <Router>
+      <NavBar />
+      <Routes />
+      <Footer />
+    </Router>
   </Chakra>
 )
 

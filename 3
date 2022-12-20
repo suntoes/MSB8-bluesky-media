@@ -1,4 +1,4 @@
-import { HashLink } from 'react-router-hash-link'
+import { Link as DOMLink } from 'react-router-hash-link'
 
 import Logo from './logo'
 import {
@@ -35,18 +35,10 @@ const Navbar = () => (
           spacing={12}
           mt={{ base: 4, lg: 0 }}
         >
-          <Link as={HashLink} to="/#why-bluesky">
-            Why BlueSky
-          </Link>
-          <Link as={HashLink} to="/#our-work">
-            Our Work
-          </Link>
-          <Link as={HashLink} to="/#our-process">
-            Our Process
-          </Link>
-          <Link as={HashLink} to="/#what-clients-say">
-            What Clients Say
-          </Link>
+          <Link as={DOMLink} to="/#why-bluesky">Why BlueSky</Link>
+          <Link as={DOMLink} to="/#our-work">Our Work</Link>
+          <Link as={DOMLink} to="/#our-process">Our Process</Link>
+          <Link as={DOMLink} to="/#what-clients-say">What Clients Say</Link>
         </Stack>
         <Box display={{ base: 'flex', lg: 'none' }} alignItems="center">
           <Menu isLazy id="navbar-menu">
@@ -58,16 +50,16 @@ const Navbar = () => (
               aria-label="Options"
             />
             <MenuList>
-              <Link as={HashLink} to="/#why-bluesky">
+              <Link as={DOMLink} to="#why-bluesky">
                 <MenuItem>Why BlueSky</MenuItem>
               </Link>
-              <Link as={HashLink} to="/#our-work">
+              <Link as={DOMLink} to="#our-work">
                 <MenuItem>Our Work</MenuItem>
               </Link>
-              <Link as={HashLink} to="/#our-process">
+              <Link as={DOMLink} to="#our-process">
                 <MenuItem>Our Process</MenuItem>
               </Link>
-              <Link as={HashLink} to="/#what-clients-say">
+              <Link as={DOMLink} to="#what-clients-say">
                 <MenuItem>What Clients Say</MenuItem>
               </Link>
             </MenuList>

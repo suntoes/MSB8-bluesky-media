@@ -1,4 +1,21 @@
-import { Button, Input, Stack, Text, Textarea } from '@chakra-ui/react'
+import { Link as DOMLink } from 'react-router-dom'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Input,
+  Link,
+  Stack,
+  Text,
+  Textarea
+} from '@chakra-ui/react'
+import styled from '@emotion/styled'
+
+const StyledCheckbox = styled(Checkbox)`
+  .chakra-checkbox__control {
+    background: white;
+  }
+`
 
 const StyledInput = props => (
   <Input
@@ -12,7 +29,7 @@ const StyledInput = props => (
   />
 )
 
-const StyledForm = ({ form, error, onChange, onSubmit }) => (
+const StyledForm = ({ agree, setAgree, form, error, onChange, onSubmit }) => (
   <>
     {error ? (
       <Text fontSize="1rem" color="red" ml="12px" w="full">
@@ -78,10 +95,27 @@ const StyledForm = ({ form, error, onChange, onSubmit }) => (
       _placeholder={{ color: 'black' }}
     />
 
+    <Box mt={2} w="full">
+      <StyledCheckbox
+        colorScheme="green"
+        isChecked={agree}
+        onChange={e => setAgree(e.target.checked)}
+      >
+        I agree to the{' '}
+        <Link as={DOMLink} textDecoration="underline" to="/terms">
+          Terms of Condition
+        </Link>{' '}
+        and acknowledge the{' '}
+        <Link as={DOMLink} textDecoration="underline" to="/terms">
+          Privacy Policy
+        </Link>
+      </StyledCheckbox>
+    </Box>
+
     <Button
+      mt={[2, 2, 0]}
       onClick={onSubmit}
       h={45}
-      mt={2}
       bg="red"
       borderRadius="10px"
       w="full"
