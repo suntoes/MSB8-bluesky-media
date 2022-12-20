@@ -140,7 +140,7 @@ const privacyHTML = `<p class="pp-hdr">This Privacy Policy applies to the sites 
 
 const Privacy = () => {
   useEffect(() => {
-    window.scrollTo(0, 0)
+    setTimeout(() => window.scrollTo(0, 0), 100)
   }, [])
 
   return (

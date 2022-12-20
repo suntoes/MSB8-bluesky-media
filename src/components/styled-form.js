@@ -1,8 +1,8 @@
 import { Link as DOMLink } from 'react-router-dom'
 import {
-  Box,
   Button,
   Checkbox,
+  Flex,
   Input,
   Link,
   Stack,
@@ -95,25 +95,26 @@ const StyledForm = ({ agree, setAgree, form, error, onChange, onSubmit }) => (
       _placeholder={{ color: 'black' }}
     />
 
-    <Box mt={2} w="full">
+    <Flex my={2} w="full">
       <StyledCheckbox
         colorScheme="green"
         isChecked={agree}
         onChange={e => setAgree(e.target.checked)}
-      >
+      />
+
+      <Text ml={5}>
         I agree to the{' '}
         <Link as={DOMLink} textDecoration="underline" to="/terms">
           Terms of Condition
         </Link>{' '}
         and acknowledge the{' '}
-        <Link as={DOMLink} textDecoration="underline" to="/terms">
+        <Link as={DOMLink} textDecoration="underline" to="/privacy">
           Privacy Policy
         </Link>
-      </StyledCheckbox>
-    </Box>
+      </Text>
+    </Flex>
 
     <Button
-      mt={[2, 2, 0]}
       onClick={onSubmit}
       h={45}
       bg="red"
