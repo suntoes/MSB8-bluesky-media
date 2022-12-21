@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import ReCAPTCHA from 'react-google-recaptcha'
-
 import {
   Box,
   Flex,
@@ -19,6 +17,7 @@ import StyledForm from '../components/styled-form'
 const Footer = () => {
   const [error, setError] = useState('')
   const [agree, setAgree] = useState(false)
+  const [captcha, setCaptcha] = useState(null)
   const [stage, setStage] = useState('loading')
   const [form, setForm] = useState({})
 
@@ -55,12 +54,10 @@ const Footer = () => {
   const handleSubmit = () => {
     const missing = handleMissing()
     const disagreed = agree ? false : 'Please agree to the form conditions'
+    const unauthorized = captcha ? false : 'Invalid captcha, please try again'
 
-    if (missing || disagreed) return setError(missing || disagreed)
-    else setStage('captcha')
-  }
+    if (missing || disagreed || unauthorized) return setError(missing || disagreed || unauthorized)
 
-  const handleCaptcha = async token => {
     const callback = res => {
       if (!res || res?.status === 400) return setStage('error')
       setStage('done')
@@ -68,7 +65,7 @@ const Footer = () => {
     }
 
     setStage('loading')
-    sendMail({ ...form, token }).then(callback)
+    sendMail({ ...form, captcha }).then(callback)   
   }
 
   return (
@@ -110,11 +107,6 @@ const Footer = () => {
         >
           {stage === 'loading' ? (
             <Spinner size="xl" />
-          ) : stage === 'captcha' ? (
-            <ReCAPTCHA
-              onChange={handleCaptcha}
-              sitekey={process.env.REACT_APP_SITE_KEY}
-            />
           ) : stage === 'done' ? (
             "Your message has been successfully sent. We'll try to get back to you ASAP, thanks!"
           ) : stage !== 'form' ? (
@@ -125,6 +117,7 @@ const Footer = () => {
               error={error}
               agree={agree}
               setAgree={setAgree}
+              setCaptcha={setCaptcha}
               onChange={handleInput}
               onSubmit={handleSubmit}
             />

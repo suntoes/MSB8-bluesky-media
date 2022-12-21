@@ -11,7 +11,6 @@ const apiClient = axios.create({
 export async function sendMail(data) {
   try {
     const res = await apiClient.post('/email', data, {
-      timeout: 9000,
       headers: {
         'x-access-token': 'token-value'
       }

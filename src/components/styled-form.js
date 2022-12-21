@@ -1,5 +1,9 @@
 import { Link as DOMLink } from 'react-router-dom'
+
+import ReCAPTCHA from 'react-google-recaptcha'
+
 import {
+  Box,
   Button,
   Checkbox,
   Flex,
@@ -9,6 +13,7 @@ import {
   Text,
   Textarea
 } from '@chakra-ui/react'
+
 import styled from '@emotion/styled'
 
 const StyledCheckbox = styled(Checkbox)`
@@ -29,7 +34,7 @@ const StyledInput = props => (
   />
 )
 
-const StyledForm = ({ agree, setAgree, form, error, onChange, onSubmit }) => (
+const StyledForm = ({ agree, setAgree, setCaptcha, form, error, onChange, onSubmit }) => (
   <>
     {error ? (
       <Text fontSize="1rem" color="red" ml="12px" w="full">
@@ -113,6 +118,13 @@ const StyledForm = ({ agree, setAgree, form, error, onChange, onSubmit }) => (
         </Link>
       </Text>
     </Flex>
+
+    <Box w="full" mb={2}>
+      <ReCAPTCHA
+        onChange={setCaptcha}
+        sitekey={process.env.REACT_APP_SITE_KEY}
+      />
+    </Box>
 
     <Button
       onClick={onSubmit}
